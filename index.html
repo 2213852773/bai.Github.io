@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUST BREEZE | 铁锈清风战队</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* 柔和动态效果 */
+        @keyframes softGlow {
+            0% { text-shadow: 0 0 6px #d97706, 0 0 12px #d9770622; }
+            100% { text-shadow: 0 0 12px #d97706, 0 0 20px #d9770633; }
+        }
+        .card-hover { transition: all 0.4s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 8px 16px #0f172a11; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rb: { light: '#f8fafc', rust: '#d97706', dark: '#1e293b', gray: '#e2e8f0' },
+                    },
+                    fontFamily: { tech: ['"Noto Sans SC"', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-rb-light text-rb-dark font-tech m-0 overflow-x-hidden">
+    <!-- 自带柔和背景音乐（Pixabay正版） -->
+    <audio id="bgm" loop preload="auto" volume="0.3">
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_22d9955780.mp3?filename=soft-ambient-111922.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 固定导航（模块切换入口） -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-rb-gray py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <span class="text-xl font-bold text-rb-rust">RUST BREEZE</span>
+            <div class="hidden md:flex gap-8 text-base">
+                <a href="#intro" class="hover:text-rb-rust transition-colors">战队简介</a>
+                <a href="#advantages" class="hover:text-rb-rust transition-colors">核心优势</a>
+                <a href="#recruit" class="hover:text-rb-rust transition-colors">招募计划</a>
+                <a href="#resources" class="hover:text-rb-rust transition-colors">资源共享</a>
+            </div>
+            <!-- 音乐控制按钮（淡色风格） -->
+            <button onclick="let a=document.getElementById('bgm');a.paused?a.play():a.pause()" 
+                    class="w-9 h-9 rounded-full bg-rb-rust/10 hover:bg-rb-rust/20 flex items-center justify-center transition">
+                <<<i class="fa fa-music text-rb-rust"></</</i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. 首屏模块 -->
+    <section class="h-screen w-full pt-20 flex items-center justify-center bg-rb-light relative">
+        <div class="absolute inset-0 opacity-20 overflow-hidden">
+            <img src="https://picsum.photos/id/1059/1920/1080" alt="铁锈战争背景" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-[clamp(2rem,6vw,4rem)] font-bold mb-4 animate-[softGlow_3s_ease-in-out_infinite] text-rb-rust">
+                铁锈清风战队
+            </h1>
+            <p class="text-[clamp(0.9rem,2vw,1.2rem)] mb-8 max-w-2xl mx-auto text-rb-dark/80">
+                为《铁锈战争》玩家打造的轻氛围社群，主打交流、成长与轻松竞技
+            </p>
+            <a href="#recruit" class="inline-block bg-rb-rust hover:bg-rb-rust/90 text-white px-6 py-2.5 rounded-md transition shadow-[0_4px_12px_rgba(217,119,6,0.2)]">
+                申请加入 <<<i class="fa fa-arrow-right ml-2"></</</i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. 战队简介模块 -->
+    <section id="intro" class="py-18 px-4 bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-2.5xl font-bold mb-10 text-center text-rb-rust animate-[softGlow_4s_ease-in-out_infinite]">战队简介</h2>
+            <div class="max-w-3xl mx-auto text-rb-dark/80 leading-relaxed">
+                <p class="mb-4">铁锈清风成立于2023年，是一群热爱《铁锈战争》的玩家自发组建的社群。我们不追求高强度竞技，更注重“玩得开心、学得轻松”——无论是刚入门的新人，还是有基础的玩家，都能在这里找到同频的队友。</p>
+                <p>目前战队有50+活跃成员，每日晚8点固定组织开黑局，定期分享战术技巧，偶尔举办队内小比赛，旨在让大家在游戏中获得乐趣的同时，慢慢提升水平。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 核心优势模块（分类卡片） -->
+    <section id="advantages" class="py-18 px-4 bg-rb-light">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-2.5xl font-bold mb-12 text-center text-rb-rust animate-[softGlow_4s_ease-in-out_infinite]">核心优势</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 卡片1：新人指导 -->
+                <div class="bg-white p-6 rounded-lg border border-rb-gray card-hover">
+                    <div class="w-11 h-11 rounded-full bg-rb-rust/10 flex items-center justify-center mb-4">
+                        <<<i class="fa fa-graduation-cap text-rb-rust text-lg"></</</i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-rb-rust">新人专属指导</h3>
+                    <p class="text-rb-dark/70 text-sm">老玩家1V1带教基础操作，整理“新手入门手册”，从基地建设到单位指挥，逐步讲解</p>
+                </div>
+                <!-- 卡片2：开黑氛围 -->
+                <div class="bg-white p-6 rounded-lg border border-rb-gray card-hover">
+                    <div class="w-11 h-11 rounded-full bg-rb-rust/10 flex items-center justify-center mb-4">
+                        <<<i class="fa fa-users text-rb-rust text-lg"></</</i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-rb-rust">轻松开黑氛围</h3>
+                    <p class="text-rb-dark/70 text-sm">不卷分数、不指责失误，赢了一起庆祝，输了一起复盘，主打“快乐游戏”</p>
+                </div>
+                <!-- 卡片3：时间灵活 -->
+                <div class="bg-white p-6 rounded-lg border border-rb-gray card-hover">
+                    <div class="w-11 h-11 rounded-full bg-rb-rust/10 flex items-center justify-center mb-4">
+                        <<<i class="fa fa-clock-o text-rb-rust text-lg"></</</i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-rb-rust">时间灵活无压力</h3>
+                    <p class="text-rb-dark/70 text-sm">不强制参与活动，根据自己时间安排，想玩就来，想歇就歇，兼顾生活与游戏</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 招募计划模块（分类分组） -->
+    <section id="recruit" class="py-18 px-4 bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-2.5xl font-bold mb-12 text-center text-rb-rust animate-[softGlow_4s_ease-in-out_infinite]">招募计划</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <!-- 新人组 -->
+                <div class="bg-rb-light p-6 rounded-lg border border-rb-gray card-hover">
+                    <h3 class="text-xl font-bold mb-4 text-rb-rust">新人组</h3>
+                    <p class="text-rb-dark/70 mb-4 text-sm">适合刚接触《铁锈战争》，或操作不熟练的玩家</p>
+                    <ul class="space-y-2 text-rb-dark/70 text-sm mb-5">
+                        <li class="flex items-center gap-2"><<<<i class="fa fa-check text-rb-rust text-xs"></</</i> 了解游戏基本规则</li>
+                        <li class="flex items-center gap-2"><<<<i class="fa fa-check text-rb-rust text-xs"></</</i> 能礼貌交流，尊重队友</li>
+                        <li class="flex items-center gap-2"><<<<i class="fa fa-check text-rb-rust text-xs"></</</i> 每周至少玩1次</li>
+                    </ul>
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" class="text-rb-rust hover:underline text-sm">QQ群：22334455</a>
+                </div>
+                <!-- 进阶组 -->
+                <div class="bg-rb-light p-6 rounded-lg border border-rb-gray card-hover">
+                    <h3 class="text-xl font-bold mb-4 text-rb-rust">进阶组</h3>
+                    <p class="text-rb-dark/70 mb-4 text-sm">适合有一定基础，想提升战术水平的玩家</p>
+                    <ul class="space-y-2 text-rb-dark/70 text-sm mb-5">
+                        <li class="flex items-center gap-2"><<<<i class="fa fa-check text-rb-rust text-xs"></</</i> 熟练使用1-2种战术</li>
+                        <li class="flex items-center gap-2"><<<<i class="fa fa-check text-rb-rust text-xs"></</</i> 愿意分享技巧，带新人</li>
+                        <li class="flex items-center gap-2"><<<<i class="fa fa-check text-rb-rust text-xs"></</</i> 每周可参与1次队内赛</li>
+                    </ul>
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" class="text-rb-rust hover:underline text-sm">QQ群：66778899</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 资源共享模块 -->
+    <section id="resources" class="py-18 px-4 bg-rb-light">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-2.5xl font-bold mb-12 text-center text-rb-rust animate-[softGlow_4s_ease-in-out_infinite]">资源共享</h2>
+            <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div class="bg-white p-5 rounded-lg border border-rb-gray card-hover">
+                    <h3 class="text-lg font-bold mb-3 text-rb-rust"><<<<i class="fa fa-file-text-o mr-2"></</</i>战术文档</h3>
+                    <p class="text-rb-dark/70 text-sm">整理“基础开局技巧”“应对不同阵容策略”等文档，成员可免费获取</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg border border-rb-gray card-hover">
+                    <h3 class="text-lg font-bold mb-3 text-rb-rust"><<<<i class="fa fa-puzzle-piece mr-2"></</</i>实用模组</h3>
+                    <p class="text-rb-dark/70 text-sm">筛选无bug、不破坏平衡的模组（如“单位优化模组”），分享下载链接</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg border border-rb-gray card-hover">
+                    <h3 class="text-lg font-bold mb-3 text-rb-rust"><<<<i class="fa fa-map mr-2"></</i>战术地图</h3>
+                    <p class="text-rb-dark/70 text-sm">收集适合练习的地图，标注资源点、战术要点，帮助成员熟悉地形</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg border border-rb-gray card-hover">
+                    <h3 class="text-lg font-bold mb-3 text-rb-rust"><<<<i class="fa fa-video-camera mr-2"></</i>复盘视频</h3>
+                    <p class="text-rb-dark/70 text-sm">对队内赛关键局进行复盘，制作简短视频，分析战术优缺点</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="py-6 bg-white border-t border-rb-gray text-center text-rb-dark/60 text-sm">
+        <p>© 2024 RUST BREEZE 铁锈清风战队 | 专注《铁锈战争》轻氛围社群</p>
+    </footer>
+
+    <!-- 平滑滚动JS -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
